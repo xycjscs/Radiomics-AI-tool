@@ -21,7 +21,7 @@ library(base)
 rm(list=ls())
 
 
-data1 <- read.csv("C:/Users/212768837/Documents/R/zhongliuyiyuan/survival_train4.csv")
+data1 <- read.csv("./survival_train4.csv")
 
 dd <- datadist(data1)
 options(datadist="dd")
@@ -39,7 +39,7 @@ nom
 
 #######
 
-data2 <- read.csv("C:/Users/212768837/Documents/R/zhongliuyiyuan/survival_newDATA.csv")
+data2 <- read.csv("./survival_newDATA.csv")
 
 
 
