@@ -1,7 +1,31 @@
 # Radiomics-AI-tool
 
-1.获取基线CECT的图像数据，一般为dicom格式
-2.手工进行肿瘤分割，一般用itk-snap、3D slicer等软件，获得nrrd或者nifti等格式的ROI文件
-3.将CECT和ROI文件通过pyradiomics免费开源软件(特征用version xxx)，应用supplements 中提供的代码获得需要的radiomics features,运行supplements python代码获得DL features
-4.根据supplements 中提供的公式或者excel文件1计算得到DLR score
-5.将DLR score和需要的临床病理数据代入公式或通过excel文件2获得1.3.5年RFS的可能性，或者通过中manuscript 提供的接线图获得
+This repositery is used to generate AI features and combine with radiomics features to give the survival probability of each new patient.
+
+## Generate Radiomics Features
+
+1. The baseline contrast-enhanced CT images are acquired and saved as dicom format.
+
+2. The ITK-SNAP or 3D Slicer software is used to manually segment the 3D ROI of the tumors on corticomedullary phase (CMP) and nephrographic phase (NP) images, and nrrd or nifti format ROIs are saved.
+
+3. The radiomics features are derived from 3D ROIs, and extracted from Pyradiomics software (Version 3.0). The code is based on the pyradiomics python package. It could be easily achieved by 3D slicer, LIFEx, or other programs.
+
+## Generate AI Features
+
+1. Select the cross section of CT which contains the largest ROI of the tumors.
+
+2. Crop it to a square figure, in which the tumor occupy the most part of the figure.
+
+3. Convert the cropped figure into numpy format and saved as files in the Preprocess directory.
+
+4. run the python script "AI-features.py". The AI features would be calculated and printed.
+
+## Combine Radiomics and AI scores
+
+DLR_score is calculated using the formula shown in the DLR——scoreformula.docx. Calculate the DLR_score based on the formulation.
+
+## Survival rate prediction
+
+The 1-, 3-, and 5- year recurrence rate can be calculated by running the "probabilityCalculation.R". The survaival_train4.csv is the set of patients used in our paper. You could add new patients in the survival_newDATA.csv to predict your patients.
+
+
