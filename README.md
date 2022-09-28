@@ -26,6 +26,6 @@ DLR_score is calculated using the formula shown in the DLR——scoreformula.doc
 
 ## Survival rate prediction
 
-The 1-, 3-, and 5- year recurrence rate can be calculated by running the "probabilityCalculation.R". The survaival_train4.csv is the set of patients used in our paper. You could add new patients in the survival_newDATA.csv to predict your patients.
+The 1-, 3-, and 5- year unrecurrence rate can be calculated by running the "probabilityCalculation.R". The survaival_train4.csv is the set of patients used in our paper. You could add new patients in the survival_newDATA.csv to predict your patients.
 
 
